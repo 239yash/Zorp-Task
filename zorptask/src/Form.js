@@ -69,7 +69,8 @@ function Form() {
         })
         .then((response) => {
             // Logging the response
-            console.log(response);
+            alert("Username  = " + response.data.data.userId + " has been created.")
+            console.log(response.data.data.userId);
 
             // Reseting the values
             setAccountid('');
