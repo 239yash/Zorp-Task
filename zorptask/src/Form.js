@@ -36,22 +36,30 @@ function Form() {
     
     const sendMessage = (e) => {
         e.preventDefault();
-
-        // Creating an object for a POST request
-        let user = {
-            "name": name,
-            "accountId": accountid,
-            "phone": {
-                "countryCode": countrycode,
-                "num": phonenum
-            },
-            "teamIds": teamids,
-            "role": role
+        
+        // Checking for NULL Values
+        if(name !== '' && accountid !== '' && countrycode !== '' && phonenum !== '' && role !== null && teamids.length > 0)
+        {
+            // Creating an object for a POST request
+            let user = {
+                "name": name,
+                "accountId": accountid,
+                "phone": {
+                    "countryCode": countrycode,
+                    "num": phonenum
+                },
+                "teamIds": teamids,
+                "role": role
+            }
+    
+            // Calling a helper fucntion for sending a POST request.
+            // Parameter passed is the object created i.e - user.
+            axiossend(user);
         }
-
-        // Calling a helper fucntion for sending a POST request.
-        // Parameter passed is the object created i.e - user.
-        axiossend(user);
+        else
+        {
+            alert("All Fields are Required");
+        }
     }
 
     // This function is for sending a POST request.
