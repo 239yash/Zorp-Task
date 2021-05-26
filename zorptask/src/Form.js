@@ -55,13 +55,10 @@ function Form() {
     }
 
     // This function is for sending a POST request.
+    // Parameter user contains all the data to be sent via POST
     const axiossend = (user) => {
-
         // Creating a POST request.
-        // I have tried many possible solutions to remove an error. (CORS error)
-        // Possible solns - Changing the mode from CORS to No CORS, Using Proxy URL, Refactoring the headers,
-        // Used one google Chrome extension also, but cannot get the correct solution to this problem.
-        // Postman API test and Curl requests are working fine but I have tried many solutions and not able to debug.
+        // Using Axios Post Request for this task.
         axios.post("http://65.0.17.80:8081/user", user, {
             headers : {
                 'Content-Type': 'application/json',
@@ -70,9 +67,9 @@ function Form() {
         .then((response) => {
             // Logging the response
             alert("Username  = " + response.data.data.userId + " has been created.")
-            console.log(response.data.data.userId);
+            console.log(response.data);
 
-            // Reseting the values
+            // Reseting all the values
             setAccountid('');
             setCountrycode('');
             setName('');
