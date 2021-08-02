@@ -38,7 +38,12 @@ function Form() {
         e.preventDefault();
         
         // Checking for NULL Values
-        if(name !== '' && accountid !== '' && countrycode !== '' && phonenum !== '' && role !== null && teamids.length > 0)
+        if(name !== ''
+           && accountid !== '' 
+           && countrycode !== ''
+           && phonenum !== '' 
+           && role !== null 
+           && teamids.length > 0)
         {
             // Creating an object for a POST request
             let user = {
@@ -67,7 +72,7 @@ function Form() {
     const axiossend = (user) => {
         // Creating a POST request.
         // Using Axios Post Request for this task.
-        axios.post("http://65.0.17.80:8081/user", user, {
+        axios.post({{API end - point}}, user, {
             headers : {
                 'Content-Type': 'application/json',
             }
